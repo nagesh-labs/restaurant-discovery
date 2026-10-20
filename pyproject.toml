@@ -1,0 +1,2 @@
+[tool.pyyaml_build_config]
+with_libyaml = false

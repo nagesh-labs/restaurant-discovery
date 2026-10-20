@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed": "#001e2c", "secondary-container": "#00a6e0", "error-container": "#93000a", "inverse-on-surface": "#2f3034", "tertiary": "#4edea3", "surface-tint": "#ffb3b1", "on-tertiary-fixed-variant": "#005236", "surface-dim": "#111317", "on-error": "#690005", "on-secondary": "#00354a", "surface": "#111317", "primary-fixed-dim": "#ffb3b1", "on-primary-container": "#5b000e", "error": "#ffb4ab", "on-secondary-container": "#00374d", "on-tertiary": "#003824", "primary-container": "#ff535a", "background": "#111317", "surface-container-high": "#282a2d", "secondary-fixed": "#c4e7ff", "on-surface-variant": "#e4bebc", "inverse-primary": "#bb162c", "outline-variant": "#5b403f", "surface-variant": "#333538", "secondary": "#7bd0ff", "secondary-fixed-dim": "#7bd0ff", "surface-container": "#1e2023", "on-primary": "#680011", "surface-container-low": "#1a1c1f", "inverse-surface": "#e2e2e6", "primary": "#ffb3b1", "on-error-container": "#ffdad6", "surface-bright": "#37393d", "on-primary-fixed-variant": "#92001c", "outline": "#ab8987", "tertiary-fixed": "#6ffbbe", "surface-container-lowest": "#0c0e11", "on-surface": "#e2e2e6", "primary-fixed": "#ffdad8", "tertiary-container": "#00a572", "on-tertiary-container": "#00311f", "on-secondary-fixed-variant": "#004c69", "tertiary-fixed-dim": "#4edea3", "on-primary-fixed": "#410007", "on-tertiary-fixed": "#002113", "surface-container-highest": "#333538", "on-background": "#e2e2e6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "3rem", "space-sm": "0.5rem", "margin": "1rem", "space-xl": "2.5rem", "margin-tablet": "2rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "space-lg": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "headline-lg": [ "Plus Jakarta Sans" ], "headline-md": [ "Plus Jakarta Sans" ], "display-hero": [ "Plus Jakarta Sans" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "label-sm": [ "Inter" ], "data-metric": [ "Inter" ], "headline-sm": [ "Plus Jakarta Sans" ], "display-hero-mobile": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "body-lg": [ "Plus Jakarta Sans" ], "label-md": [ "Inter" ] }, "fontSize": { "headline-lg": [ "28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "headline-md": [ "20px", { "lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "display-hero": [ "40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" } ], "headline-lg-mobile": [ "24px", { "lineHeight": "30px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" } ], "data-metric": [ "13px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "headline-sm": [ "16px", { "lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "display-hero-mobile": [ "32px", { "lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "800" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" } ], "body-md": [ "14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" } ], "body-lg": [ "16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.5)]"><div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs transition-opacity hover:opacity-90" data-path="ai-concierge-discovery" href="#"><img alt="Zomato AI Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X2XnVVmGuNLl-vSK8ql0jTtG2gNdLprmEG1FoLmdq-1dhFSMwp8pZkarJ1eQWaLrc6g2z1_pR5ZJ5dh6CoLgzgGy9F7tD2GNr_Cy8J3AbtBQK92xudteRiDzkijWvuzkf2fUyxvmNfJl4H_w8tlqeUto0QTT_iKEH1Y2dVUaj5W8zfEJdhLwlS7mR8AfC_uRqKdfmQuAjkjndVCjfVTBlGKttxKl_o1HySV6JXqgNw-XZuvcbW4ov9lSE"/><span class="font-display-hero text-headline-sm tracking-tight text-on-surface">zomato <span class="font-headline-lg font-bold text-primary">AI</span></span></a><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container text-tertiary"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span></span><span class="font-label-sm text-label-sm font-semibold tracking-wide">⚡ Powered by Groq LLaMA 3.3</span></div></div><div class="flex items-center gap-gutter"><div class="hidden md:flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high text-on-surface cursor-pointer hover:bg-surface-bright transition-colors"><span class="material-symbols-outlined text-primary text-[18px]">location_on</span><span class="font-label-md text-label-md font-semibold">Bangalore • 41,600+ Places</span><span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span></div><nav class="hidden lg:flex items-center gap-space-xs p-space-xs rounded-full bg-surface-container" data-active-classes="bg-surface-container-highest text-on-surface font-semibold"><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-surface-container-highest text-on-surface font-semibold" data-path="ai-concierge-discovery" href="#">AI Concierge</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="hyperlocal-taste-feed" href="#">Taste Radar</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="trending-curations" href="#">Curations</a><a class="px-space-md py-space-xs rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="smart-table-bookings" href="#">Bookings</a></nav></div><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm"><span class="material-symbols-outlined text-[16px]">search</span><span>⌘K Quick Find</span></div><div class="hidden 2xl:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-low text-secondary font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>Vectors: 99.4% Sync</span></div><button aria-label="Theme indicator" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><div class="flex items-center gap-space-xs pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs contained within canvas -->
+<div class="relative w-full max-w-[1360px] mx-auto px-margin-desktop py-space-lg">
+<div class="absolute -top-10 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-80 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Sub-header Meta Bar (Hyperlocal Status & Agent Stats) -->
+<div class="flex flex-wrap items-center justify-between gap-gutter pb-space-md mb-space-lg border-b border-surface-container-highest">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container-high text-secondary text-label-sm font-label-sm tracking-wider uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+          Bangalore Vector Store: 41,600+ nodes live
+        </span>
+<span class="hidden sm:inline-block text-outline-variant">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+          Indiranagar Hub Synced 2m ago (142 candidate venues)
+        </span>
+</div>
+<div class="flex items-center gap-space-md text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-lg">
+<span class="text-on-surface font-semibold font-data-metric text-data-metric text-tertiary">120 tokens/sec</span>
+<span class="text-outline">via Groq LLaMA 3.3 70B</span>
+</div>
+</div>
+</div>
+<!-- Quick Presets Badges Carousel -->
+<div class="mb-space-lg">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">magic_button</span> Quick Curated Presets
+        </span>
+<span class="text-label-sm font-label-sm text-secondary cursor-pointer hover:underline">Customize Presets</span>
+</div>
+<div class="flex items-center gap-space-sm overflow-x-auto pb-space-xs no-scrollbar">
+<button class="shrink-0 flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-[0_0_16px_rgba(255,83,90,0.35)] transition-all transform hover:scale-105">
+<span>🍕</span> Casual Italian - Indiranagar
+          <span class="material-symbols-outlined text-[14px]">check</span>
+</button>
+<button class="shrink-0 flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all">
+<span>🍛</span> Authentic South Indian - Jayanagar
+        </button>
+<button class="shrink-0 flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all">
+<span>🥘</span> Family Dining - Koramangala
+        </button>
+<button class="shrink-0 flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all">
+<span>☕</span> Rooftop Cafe - Whitefield
+        </button>
+<button class="shrink-0 flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all">
+<span>🍸</span> Speakeasy Cocktail - Lavelle Rd
+        </button>
+<button class="shrink-0 flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all">
+<span>🍱</span> Izakaya &amp; Robata - MG Road
+        </button>
+</div>
+</div>
+<!-- MAIN DUAL-PANE DESKTOP WORKSPACE -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- LEFT PANEL: Sticky Filter & AI Prompt Engine (~380px on desktop) -->
+<aside class="lg:col-span-4 xl:col-span-4 sticky top-20 flex flex-col gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low backdrop-blur-xl shadow-xl flex flex-col gap-space-md">
+<!-- Panel Header -->
+<div class="flex items-center justify-between pb-space-sm border-b border-surface-container-highest">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Taste &amp; Context Vector</h2>
+</div>
+<button class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">Reset</button>
+</div>
+<!-- Bangalore Area Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold flex items-center justify-between">
+<span>Hyperlocal Target</span>
+<span class="text-tertiary">GPS Active</span>
+</label>
+<div class="relative">
+<div class="w-full flex items-center justify-between px-space-md py-space-sm bg-surface-container rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Indiranagar (100ft &amp; 12th Main)</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">arrow_drop_down</span>
+</div>
+</div>
+<!-- Quick Area Tag Pills -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container-highest text-primary font-semibold cursor-pointer">Indiranagar</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface cursor-pointer">Koramangala</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface cursor-pointer">Lavelle Rd</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface cursor-pointer">Whitefield</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface cursor-pointer">HSR Layout</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container text-on-surface-variant hover:text-on-surface cursor-pointer">UB City</span>
+</div>
+</div>
+<!-- Cuisine Selection with Interactive Chips -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">
+              Cuisine Preferences
+            </label>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-space-sm py-1 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary font-semibold flex items-center gap-1 cursor-pointer">
+                Artisanal Italian
+                <span class="material-symbols-outlined text-[13px]">close</span>
+</span>
+<span class="px-space-sm py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer">
+                + North Indian
+              </span>
+<span class="px-space-sm py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer">
+                + Mangalorean &amp; Coastal
+              </span>
+<span class="px-space-sm py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer">
+                + Continental
+              </span>
+<span class="px-space-sm py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface cursor-pointer">
+                + Pan-Asian
+              </span>
+</div>
+</div>
+<!-- Segmented Budget Tier -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Price for Two Tier</label>
+<span class="text-label-sm font-label-sm text-secondary font-data-metric">₹1,200 - ₹1,800 avg</span>
+</div>
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container rounded-lg">
+<button class="py-2 px-1 text-center rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+                Low<br/><span class="text-[10px] opacity-75">≤ ₹300</span>
+</button>
+<button class="py-2 px-1 text-center rounded bg-primary-container text-on-primary font-semibold text-label-sm font-label-sm shadow-[0_0_12px_rgba(255,83,90,0.4)]">
+                Medium<br/><span class="text-[10px] opacity-90">₹301 - ₹700</span>
+</button>
+<button class="py-2 px-1 text-center rounded text-label-sm font-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+                High<br/><span class="text-[10px] opacity-75">&gt; ₹700</span>
+</button>
+</div>
+</div>
+<!-- Minimum Rating Slider & Filter Count -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Rating Quality Gate</label>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-data-metric bg-tertiary-container/30 text-tertiary px-2 py-0.5 rounded">
+                ⭐ 4.2+ (Top Tier)
+              </span>
+</div>
+<input class="w-full accent-primary-container h-1.5 bg-surface-container-highest rounded-lg cursor-pointer" max="5.0" min="3.5" step="0.1" type="range" value="4.2"/>
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>⭐ 3.5</span>
+<span class="text-secondary font-data-metric font-semibold">Filtering 1,840 top-tier spots</span>
+<span>⭐ 5.0</span>
+</div>
+</div>
+<!-- Natural Language AI Dining Prompt Box -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+                Natural Language Reasoning Prompt
+              </label>
+<span class="text-[10px] font-label-sm text-on-surface-variant">Live Context</span>
+</div>
+<div class="relative p-space-sm bg-surface-container-highest/60 rounded-xl shadow-[0_0_18px_rgba(123,208,255,0.1)]">
+<textarea class="w-full bg-transparent border-none text-body-sm font-body-sm text-on-surface focus:outline-none resize-none placeholder-outline" placeholder="Describe the vibe, dietary nuances, occasion, seating preferences..." rows="4">Looking for a lively yet intimate dinner spot with craft sourdough pizza or handmade pasta, pet-friendly outdoor courtyard, artisanal tiramisu, and exceptional craft cocktails for an anniversary date.</textarea>
+<div class="flex justify-between items-center pt-2 mt-1 border-t border-surface-container">
+<span class="text-[11px] font-label-sm text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  4 Semantic Intents parsed
+                </span>
+<button class="text-[11px] font-label-sm text-on-surface-variant hover:text-primary">Clear</button>
+</div>
+</div>
+</div>
+<!-- Primary CTA Button -->
+<div class="pt-space-xs">
+<button class="w-full py-space-sm px-space-md rounded-full bg-gradient-to-r from-primary-container via-primary-fixed-dim to-primary-container text-on-primary font-headline-sm text-headline-sm font-bold shadow-[0_4px_24px_rgba(255,83,90,0.45)] hover:shadow-[0_4px_32px_rgba(255,83,90,0.65)] hover:scale-[1.01] active:scale-[0.99] transition-all flex flex-col items-center justify-center gap-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span>Generate AI Recommendations</span>
+</div>
+<span class="text-[10px] font-label-sm tracking-wide opacity-90 uppercase">Groq LLaMA 3.3 • 120 tokens/sec</span>
+</button>
+</div>
+<!-- Sensory Parameter Radar Mini Badge -->
+<div class="flex items-center justify-between p-space-xs px-space-sm bg-surface-container-lowest rounded-lg text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-[11px] font-label-sm">
+<span class="material-symbols-outlined text-secondary text-[14px]">tune</span>
+              Acoustic Profile: Low / Romantic
+            </span>
+<span class="text-tertiary text-[11px] font-label-sm font-semibold">99.4% Match Gate</span>
+</div>
+</div>
+<!-- Bangalore Micro-Insight Pill -->
+<div class="p-space-sm rounded-xl bg-surface-container-lowest text-on-surface-variant text-body-sm font-body-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">local_shipping</span>
+<div>
+<p class="font-semibold text-on-surface text-label-md font-label-md">Indiranagar 100ft Road Traffic Notice</p>
+<p class="text-body-sm font-body-sm text-outline">Evening rush peak active until 9:15 PM. Cab ETA ~14 mins from Domlur flyover.</p>
+</div>
+</div>
+</aside>
+<!-- RIGHT PANEL: AI Synthesis & Ranked Restaurant Cards -->
+<main class="lg:col-span-8 xl:col-span-8 flex flex-col gap-space-lg">
+<!-- AI Summary Callout Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-2xl">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-primary-container to-tertiary"></div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">
+                  AI Concierge Synthesis for <span class="text-primary font-bold">"Indiranagar Anniversary Italian &amp; Cocktails"</span>
+</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container/20 text-secondary text-label-sm font-label-sm font-data-metric font-semibold">
+                ⚡ 1.28s via Groq LLaMA 3.3 (70B) • 99.1% Confidence Score
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              Analyzed <strong class="text-on-surface font-semibold">142 Indiranagar dining spots</strong> against <strong class="text-on-surface font-semibold">18,400+ recent verified Bangalore diner reviews</strong>. Filtered specifically for pet-friendly open-air courtyards, authentic Roman/Neapolitan culinary technique, craft mixology, and romantic ambiance.
+            </p>
+<!-- Quick Semantic Attributes Tags -->
+<div class="flex flex-wrap gap-space-xs pt-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">yard</span> 🌿 3 Courtyard Spots
+              </span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-secondary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_pizza</span> 🍕 Wood-fired Oven Verified
+              </span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-primary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pets</span> 🐶 100% Pet Friendly
+              </span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_bar</span> 🍸 Award-Winning Bar Program
+              </span>
+</div>
+</div>
+</div>
+<!-- RECOMMENDATION CARD #1: Milano Pizzeria & Trattoria (Gold Rank) -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group">
+<!-- Card Visual & Top Badges Bar -->
+<div class="relative h-64 md:h-72 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Intimate rustic Italian trattoria courtyard at night in Indiranagar Bangalore with fairy lights draped in green canopy, wood-fired stone pizza oven glowing in background, candlelit wooden tables with handmade pasta and artisanal cocktails, romantic aesthetic, cinematic film grain warm moody lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLr79Mcnja1_2Qo_9gdbcaSM0U1F6IAzWEqEc_xAF4uvmSgzCuHCgxzLySGM5Pcn7GIDfAQB0fyDUA8IzF3AOkSKOoOg9oX-hdlNkXfA7hy13HCEmcp6ikSe2khGXWqhYIOh64zfnRQ62TS0O2JwTC-W2UiUC8n7a1yZkLDDF676h_6_JAm_qdx6DqAEfA3IJbsFUW1GH5q5DXInZOMIamfqYRC6pR2AREKToi2jD4z9EUqyLEUkD5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+<!-- Badges Floating Over Media -->
+<div class="absolute top-space-md left-space-md flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-gradient-to-r from-amber-400 to-primary-container text-on-secondary-fixed text-label-md font-label-md font-bold shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">hotel_class</span>
+                🏆 #1 AI Match (98.6%)
+              </span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md text-tertiary text-label-sm font-label-sm font-semibold">
+                Couples Choice 2025
+              </span>
+</div>
+<div class="absolute top-space-md right-space-md">
+<div class="px-space-sm py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-data-metric font-data-metric font-bold shadow-lg flex items-center gap-1">
+<span>⭐ 4.8</span>
+<span class="text-[11px] opacity-80">(2,840 reviews)</span>
+</div>
+</div>
+<!-- Bottom Left Info in Scrim -->
+<div class="absolute bottom-space-md left-space-md right-space-md">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface drop-shadow-md">
+                  Milano Pizzeria &amp; Trattoria
+                </h3>
+<span class="material-symbols-outlined text-tertiary text-[22px]" title="Verified Kitchen &amp; Menu">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">
+                Artisanal Italian • Woodfired Neapolitan • Craft Cocktails • Gelateria
+              </p>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Key Metric Chips Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-sm rounded-lg bg-surface-container font-data-metric text-data-metric text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">payments</span>
+<div>
+<div class="text-[11px] font-label-sm text-on-surface-variant">Cost for Two</div>
+<div class="font-bold">₹1,400 avg</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">distance</span>
+<div>
+<div class="text-[11px] font-label-sm text-on-surface-variant">Distance</div>
+<div class="font-bold">12th Main (0.8 km)</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[18px]">schedule</span>
+<div>
+<div class="text-[11px] font-label-sm text-on-surface-variant">Live Timing</div>
+<div class="font-bold text-tertiary">Open • Closes 11:30 PM</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">pets</span>
+<div>
+<div class="text-[11px] font-label-sm text-on-surface-variant">Courtyard</div>
+<div class="font-bold">Dog Welcome 🐕</div>
+</div>
+</div>
+</div>
+<!-- AI Personalized Reasoning Box -->
+<div class="rounded-xl p-space-md bg-secondary/5 shadow-inner">
+<div class="flex items-center gap-space-xs mb-space-xs text-secondary font-label-sm text-label-sm font-semibold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span>
+                Why this is a premier fit for your anniversary
+              </div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                Matches your anniversary request: Features a fairy-lit leafy courtyard that is enthusiastically dog-friendly (water bowls and organic treats provided). Renowned for authentic handmade burrata tortellini, 48-hour fermented sourdough crusts, and an acclaimed espresso-infused tiramisu paired with botanical gin cocktails.
+              </p>
+<!-- Dish Micro-Recommender -->
+<div class="mt-space-sm pt-space-xs border-t border-surface-container-highest flex flex-wrap items-center gap-space-xs">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-semibold">AI Curated Order:</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-medium">Truffle Sourdough Margherita</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-medium">Handmade Burrata Agnolotti</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-medium">Smoked Rosemary Negroni</span>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-sm rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-[0_0_16px_rgba(255,83,90,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">table_bar</span>
+                  Reserve Table (Instant Confirm)
+                </button>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright transition-colors flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">restaurant_menu</span>
+                  View Menu &amp; Photos
+                </button>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-space-sm rounded-full bg-surface-container text-secondary hover:bg-surface-bright transition-colors" title="AI Dish Match (9 Dishes)">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+</button>
+<button class="p-space-sm rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors" title="Directions via Google Maps">
+<span class="material-symbols-outlined text-[18px]">directions</span>
+</button>
+<button class="p-space-sm rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors" title="Share Itinerary">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- RECOMMENDATION CARD #2: Botanica Bistro & Garden Bar (Silver Rank) -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group">
+<div class="relative h-60 md:h-64 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Stunning glasshouse garden restaurant interior in Bangalore with hanging botanical ferns, warm brass lamps, open wood fired pizza counter, pet dog resting on terracotta tiles, stylish young patrons, twilight lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqvAAgQDfYgycZ0S2rIyfELs6YS7UlTsH8nm556R3NMeuap8ykr5auHS5c5WM4tBeBvTqpbVWMgdfwA9maAtQ1uT8A8AIkdzAOJqMwCjdmhYf29Dlw30cWwcWlHTRWIn-A7UBmtKggyZD33wpDDjISLUTyU19Peksk1Ygm4ONKZhJpDiUcw1eqhzCdj-UsPFYfbVKChtZ4qVIU_m3cEeokPrrkg7DuahgehH8mknzj9czQEmNciyS2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-gradient-to-r from-slate-300 to-indigo-300 text-on-secondary-fixed text-label-md font-label-md font-bold shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">award_star</span>
+                🥈 #2 AI Match (96.2%)
+              </span>
+</div>
+<div class="absolute top-space-md right-space-md">
+<div class="px-space-sm py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-data-metric font-data-metric font-bold shadow-lg flex items-center gap-1">
+<span>⭐ 4.6</span>
+<span class="text-[11px] opacity-80">(1,920 reviews)</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md">
+<div class="flex items-center gap-space-xs">
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">
+                  Botanica Bistro &amp; Garden Bar
+                </h3>
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">
+                European Bistro • Wood-Fired Pizza • Artisanal Gelato • Botanicals
+              </p>
+</div>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-sm rounded-lg bg-surface-container font-data-metric text-data-metric text-on-surface">
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Cost for Two</span>
+<div class="font-bold">₹1,200 avg</div>
+</div>
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Location</span>
+<div class="font-bold">100ft Rd (1.4 km)</div>
+</div>
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Acoustics</span>
+<div class="font-bold text-secondary">Chill Jazzy Ambient</div>
+</div>
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Outdoor Seating</span>
+<div class="font-bold text-tertiary">Glasshouse Gazebo</div>
+</div>
+</div>
+<!-- AI Reason Box -->
+<div class="rounded-xl p-space-md bg-secondary/5">
+<div class="flex items-center gap-space-xs mb-space-xs text-secondary font-label-sm text-label-sm font-semibold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span>
+                Why this matches your criteria
+              </div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                Enchanting glasshouse garden with alfresco seating. Highly praised anniversary dessert platter with custom message piping. Pet-friendly gazebo tables available with reservation, offering great sourdough thin-crusts and elderflower spritzes.
+              </p>
+</div>
+<!-- Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-sm rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-md hover:scale-105 active:scale-95 transition-all">
+                  Reserve Table
+                </button>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright transition-colors">
+                  View Menu
+                </button>
+</div>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">navigation</span> Directions
+              </button>
+</div>
+</div>
+</article>
+<!-- RECOMMENDATION CARD #3: Sotto Sopra Cucina & Bar (Bronze Rank) -->
+<article class="flex flex-col rounded-xl bg-surface-container-low overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group">
+<div class="relative h-60 md:h-64 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Chic dark moody rooftop terrace restaurant in Indiranagar Bangalore at night with soft candle illumination, wine glasses on linen, couples dining peacefully under starlight, warm Italian luxury dining vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7gndAKDm4lbEp0XN316IsdSNq54wuneuIWZZlMbLq7qyuHdn6J_lFgh680NM9OLmjgFcCOAo7dJDd3ijRfX5MEcnS5f8BPYd7QIlipQCOm1pQsODbPqbgovfmKqJ9RCoD1ow41dEFAlj_c-1KG98OJRUtFZW_g6BSouFj9pjx0_n_dUiiSEKIUDN3NQi0Nggx_mA_-MbAJnY5vYipEiGvJxvc59YKkqHHy980RschZYgkItoaxCHk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+<div class="absolute top-space-md left-space-md flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-gradient-to-r from-amber-700 to-amber-900 text-primary-fixed font-label-md text-label-md font-bold shadow-lg flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">stars</span>
+                🥉 #3 AI Match (93.8%)
+              </span>
+</div>
+<div class="absolute top-space-md right-space-md">
+<div class="px-space-sm py-1 rounded-full bg-tertiary-container text-on-tertiary-container text-data-metric font-data-metric font-bold shadow-lg flex items-center gap-1">
+<span>⭐ 4.5</span>
+<span class="text-[11px] opacity-80">(1,410 reviews)</span>
+</div>
+</div>
+<div class="absolute bottom-space-md left-space-md right-space-md">
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface">
+                Sotto Sopra Cucina &amp; Bar
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">
+                Northern Italian • Handmade Pasta • Sommelier Curation • Romantic Terrace
+              </p>
+</div>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-sm rounded-lg bg-surface-container font-data-metric text-data-metric text-on-surface">
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Cost for Two</span>
+<div class="font-bold">₹1,600 avg</div>
+</div>
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Location</span>
+<div class="font-bold">HAL 2nd Stage (1.9 km)</div>
+</div>
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Pacing</span>
+<div class="font-bold text-secondary">Slow / Unrushed</div>
+</div>
+<div>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Signature</span>
+<div class="font-bold text-primary">Truffle Cacio e Pepe</div>
+</div>
+</div>
+<!-- AI Reason Box -->
+<div class="rounded-xl p-space-md bg-secondary/5">
+<div class="flex items-center gap-space-xs mb-space-xs text-secondary font-label-sm text-label-sm font-semibold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[16px]">lightbulb</span>
+                Why this matches your criteria
+              </div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                Intimate candle-lit rustic terrace. Renowned truffle cacio e pepe and house-made limoncello. Quiet acoustics ideal for celebratory conversation, with an exceptional vintage Italian wine list.
+              </p>
+</div>
+<!-- Action Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-space-sm rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-md hover:scale-105 active:scale-95 transition-all">
+                  Reserve Table
+                </button>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright transition-colors">
+                  View Menu
+                </button>
+</div>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-bright transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">navigation</span> Directions
+              </button>
+</div>
+</div>
+</article>
+<!-- TRANSPARENT CANDIDATE POOL & GROQ PROMPT INSPECTOR (Bottom Collapsible Drawer) -->
+<section class="rounded-xl bg-surface-container-lowest p-space-md shadow-lg flex flex-col gap-space-md" id="ai-inspector-section">
+<div class="flex items-center justify-between cursor-pointer" onclick="document.getElementById('inspector-content').classList.toggle('hidden'); document.getElementById('inspector-icon').classList.toggle('rotate-180')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">terminal</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                Transparent Candidate Pool &amp; Groq System Prompt
+              </h4>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm bg-surface-container text-tertiary">
+                Expanded Vector Trace
+              </span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-transform duration-300" id="inspector-icon">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Inspector Content Body -->
+<div class="flex flex-col gap-space-md pt-space-sm border-t border-surface-container-high" id="inspector-content">
+<!-- Candidate Scores Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-data-metric text-data-metric">
+<thead>
+<tr class="text-on-surface-variant text-[11px] uppercase tracking-wider border-b border-surface-container">
+<th class="pb-2 font-semibold">Candidate Restaurant</th>
+<th class="pb-2 font-semibold">Locality</th>
+<th class="pb-2 font-semibold">AI Match Score</th>
+<th class="pb-2 font-semibold">Sentiment Polarity</th>
+<th class="pb-2 font-semibold">Price Tier</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container/60 text-on-surface text-body-sm">
+<tr>
+<td class="py-2.5 font-semibold text-primary">Milano Pizzeria &amp; Trattoria</td>
+<td class="py-2.5 text-on-surface-variant">12th Main, Indiranagar</td>
+<td class="py-2.5 text-tertiary font-bold font-data-metric">98.6% (Top Ranked)</td>
+<td class="py-2.5 text-secondary">+0.94 (Romantic / Alfresco)</td>
+<td class="py-2.5 font-data-metric">₹₹ (Medium)</td>
+</tr>
+<tr>
+<td class="py-2.5 font-semibold text-primary">Botanica Bistro &amp; Garden Bar</td>
+<td class="py-2.5 text-on-surface-variant">100ft Road, Indiranagar</td>
+<td class="py-2.5 text-tertiary font-bold font-data-metric">96.2%</td>
+<td class="py-2.5 text-secondary">+0.91 (Courtyard / Casual)</td>
+<td class="py-2.5 font-data-metric">₹₹ (Medium)</td>
+</tr>
+<tr>
+<td class="py-2.5 font-semibold text-primary">Sotto Sopra Cucina &amp; Bar</td>
+<td class="py-2.5 text-on-surface-variant">HAL 2nd Stage, Indiranagar</td>
+<td class="py-2.5 text-tertiary font-bold font-data-metric">93.8%</td>
+<td class="py-2.5 text-secondary">+0.88 (Intimate / Fine)</td>
+<td class="py-2.5 font-data-metric">₹₹₹ (High)</td>
+</tr>
+<tr>
+<td class="py-2.5 font-semibold text-on-surface">Toit Brewpub</td>
+<td class="py-2.5 text-on-surface-variant">100ft Road, Indiranagar</td>
+<td class="py-2.5 text-outline font-data-metric">84.2% (Deprioritized: High Decibel)</td>
+<td class="py-2.5 text-secondary">+0.89 (High Energy)</td>
+<td class="py-2.5 font-data-metric">₹₹ (Medium)</td>
+</tr>
+<tr>
+<td class="py-2.5 font-semibold text-on-surface">Chianti Artisan Italian</td>
+<td class="py-2.5 text-on-surface-variant">5th Block, Koramangala</td>
+<td class="py-2.5 text-outline font-data-metric">81.0% (Out-of-Radius: 4.8 km)</td>
+<td class="py-2.5 text-secondary">+0.86 (Pasta Focus)</td>
+<td class="py-2.5 font-data-metric">₹₹ (Medium)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Semantic JSON & Embeddings Snippet -->
+<div class="p-space-sm rounded-lg bg-surface-container font-mono text-[12px] leading-relaxed text-secondary overflow-x-auto">
+<div class="text-on-surface-variant text-[11px] uppercase tracking-wide font-label-sm font-semibold mb-1">Semantic Embedding Weights &amp; Distance Vector</div>
+<pre class="text-on-surface-variant font-mono"><code>{
+  "system_inference": "Groq-LLaMA-3.3-70b-versatile",
+  "prompt_tokens": 482,
+  "completion_tokens": 128,
+  "inference_latency_ms": 1284,
+  "semantic_anchors": ["pet_friendly_courtyard", "fermented_sourdough", "craft_mixology", "anniversary_low_noise"],
+  "spatial_constraint": { "lat": 12.9716, "lng": 77.5946, "radius_km": 2.5, "zone": "Indiranagar" },
+  "top_vector_distance": 0.142,
+  "cosine_similarity": 0.986
+}</code></pre>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]"><div class="w-full px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><div class="flex items-center gap-space-xs"><span class="font-label-md text-label-md font-bold text-on-surface">Zomato AI Engine</span><span>• Bangalore Culinary Graph v4.2</span></div><div class="flex items-center gap-gutter"><span class="text-tertiary font-label-sm text-label-sm">Lat: 12.9716° N, Long: 77.5946° E</span><span>Indiranagar • Koramangala • Lavelle Road • HSR</span><span>© 2025 Zomato Ltd.</span></div></div></footer></body></html>

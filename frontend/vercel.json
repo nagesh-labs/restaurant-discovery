@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://milestone-zomato-production.up.railway.app/api/:path*"
+    }
+  ]
+}

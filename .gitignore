@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# .gitignore — Zomato AI Recommendation System
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── Secrets & Environment ─────────────────────────────────────────────────────
+.env
+*.pem
+*.key
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyc
+.Python
+
+# ── Virtual Environments ─────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Data / Cache ──────────────────────────────────────────────────────────────
+data/processed/zomato_raw.parquet
+*.parquet
+!data/processed/zomato_clean.parquet
+*.csv
+*.pkl
+
+# ── IDE & OS ──────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# ── Testing & Coverage ────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ── Build / Distribution ─────────────────────────────────────────────────────
+dist/
+build/
+*.egg-info/

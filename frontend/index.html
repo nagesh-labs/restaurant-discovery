@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Zomato • Curated Restaurant Discovery</title>
+  <meta name="description" content="Discover Bangalore's finest restaurants, curated to your taste, budget, and occasion."/>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#121418",
+            "surface-low": "#181b20",
+            "surface-card": "#1e2229",
+            "surface-highlight": "#282d37",
+            "border-subtle": "rgba(255, 255, 255, 0.08)",
+            "primary": "#ff4b55",
+            "primary-hover": "#ff333f",
+            "primary-soft": "rgba(255, 75, 85, 0.12)",
+            "emerald": "#10b981",
+            "amber": "#f59e0b",
+            "cyan": "#38bdf8",
+            "text-main": "#f1f5f9",
+            "text-muted": "#94a3b8",
+            "text-subtle": "#64748b"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body class="bg-surface text-text-main font-sans antialiased selection:bg-primary selection:text-white">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-md border-b border-border-subtle">
+    <div class="max-w-7xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between">
+      <!-- Left: Brand Logo -->
+      <div class="flex items-center gap-6">
+        <a class="flex items-center gap-2 group" href="/">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-[#e23744] flex items-center justify-center text-white shadow-md shadow-primary/20 group-hover:scale-105 transition-transform">
+            <span class="material-symbols-outlined text-[20px]">restaurant</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-extrabold text-xl tracking-tight leading-none text-white">zomato <span class="text-primary font-bold text-sm tracking-normal uppercase ml-0.5">Dining</span></span>
+            <span class="text-[11px] text-text-subtle font-medium">Bangalore Discovery</span>
+          </div>
+        </a>
+
+        <!-- Location Badge -->
+        <div class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-low border border-border-subtle text-xs text-text-muted hover:text-white cursor-pointer transition-colors"
+             onclick="document.getElementById('location-select').focus()">
+          <span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
+          <span class="font-medium text-text-main" id="header-location-label">Bangalore</span>
+          <span class="text-text-subtle">• 41,000+ Places</span>
+        </div>
+      </div>
+
+      <!-- Right: Search trigger & Quick actions -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-low border border-border-subtle text-xs text-text-muted cursor-pointer hover:border-text-subtle transition-colors"
+             onclick="document.getElementById('prompt-textarea').focus()">
+          <span class="material-symbols-outlined text-[16px]">search</span>
+          <span>Search dining or cravings...</span>
+          <kbd class="px-1.5 py-0.5 rounded bg-surface text-[10px] text-text-subtle font-mono border border-border-subtle">⌘K</kbd>
+        </div>
+
+        <button onclick="openBookingModal('General Reservation')"
+                class="hidden lg:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/10 hover:bg-primary/20 text-primary text-xs font-semibold border border-primary/20 transition-all">
+          <span class="material-symbols-outlined text-[16px]">table_restaurant</span>
+          <span>Book a Table</span>
+        </button>
+
+        <div class="w-8 h-8 rounded-full bg-surface-card border border-border-subtle flex items-center justify-center text-xs font-semibold text-text-muted">
+          <span class="material-symbols-outlined text-[18px]">person</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGE CONTAINER -->
+  <main class="w-full pt-20 pb-16 min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <!-- CLEAN HERO BANNER -->
+      <div class="pt-1 pb-3 flex flex-col gap-1">
+        <h1 class="font-display font-extrabold text-2xl text-white tracking-tight">
+          Find Your Perfect Table
+        </h1>
+        <p class="text-xs sm:text-sm text-text-muted max-w-2xl">
+          Curated restaurant recommendations tailored to your neighborhood, preferred cuisine, budget, and occasion.
+        </p>
+      </div>
+
+      <!-- POPULAR DISCOVERY PRESETS CAROUSEL -->
+      <div class="mb-4">
+        <div class="flex items-center gap-2 overflow-x-auto pb-1.5 no-scrollbar" id="presets-carousel">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+
+      <!-- MAIN DUAL-COLUMN WORKSPACE -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT PANEL: Filter & Search Controls -->
+        <aside class="lg:col-span-4 xl:col-span-4 lg:sticky lg:top-20 flex flex-col gap-3">
+          <div class="p-4 sm:p-5 rounded-2xl bg-surface-low border border-border-subtle shadow-lg flex flex-col gap-4">
+            
+            <!-- Panel Header -->
+            <div class="flex items-center justify-between pb-2.5 border-b border-border-subtle">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+                <h2 class="font-display font-bold text-base text-white">Filter Recommendations</h2>
+              </div>
+              <button id="reset-filters-btn" class="text-xs font-medium text-text-subtle hover:text-primary transition-colors">
+                Reset
+              </button>
+            </div>
+
+            <!-- Neighborhood / Location Selector -->
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                Neighborhood
+              </label>
+              <div class="relative">
+                <select id="location-select"
+                        class="w-full px-3.5 py-2.5 bg-surface-card text-text-main text-sm rounded-xl border border-border-subtle appearance-none cursor-pointer focus:outline-none focus:border-primary transition-colors font-medium">
+                  <option value="Indiranagar">Indiranagar</option>
+                  <option value="Koramangala">Koramangala</option>
+                  <option value="Lavelle Road">Lavelle Road</option>
+                  <option value="Whitefield">Whitefield</option>
+                  <option value="HSR Layout">HSR Layout</option>
+                  <option value="Jayanagar">Jayanagar</option>
+                </select>
+                <span class="material-symbols-outlined text-text-subtle text-[18px] absolute right-3 top-3 pointer-events-none">expand_more</span>
+              </div>
+              <!-- Quick Area Tags -->
+              <div class="flex flex-wrap gap-1.5 pt-0.5" id="quick-area-pills">
+                <!-- Populated dynamically by app.js -->
+              </div>
+            </div>
+
+            <!-- Cuisine Preferences -->
+            <div class="flex flex-col gap-1.5">
+              <div class="flex justify-between items-center">
+                <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                  Cuisines
+                </label>
+                <span class="text-[11px] text-text-subtle">Select one or more</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5" id="cuisine-chips-container">
+                <!-- Populated dynamically by app.js -->
+              </div>
+            </div>
+
+            <!-- Budget Tier (Cost for Two) -->
+            <div class="flex flex-col gap-1.5">
+              <div class="flex justify-between items-center">
+                <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                  Cost for Two
+                </label>
+                <span class="text-xs font-medium text-text-main" id="price-tier-avg">₹301 – ₹700 avg</span>
+              </div>
+              <div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-card rounded-xl border border-border-subtle">
+                <button type="button" data-budget="low"
+                        class="py-2 text-center rounded-lg text-xs font-medium text-text-muted hover:text-white transition-all">
+                  Low<br/><span class="text-[10px] text-text-subtle">≤ ₹300</span>
+                </button>
+                <button type="button" data-budget="medium"
+                        class="py-2 text-center rounded-lg bg-primary text-white font-semibold text-xs shadow-md shadow-primary/20 transition-all">
+                  Medium<br/><span class="text-[10px] opacity-90">₹301 – ₹700</span>
+                </button>
+                <button type="button" data-budget="high"
+                        class="py-2 text-center rounded-lg text-xs font-medium text-text-muted hover:text-white transition-all">
+                  High<br/><span class="text-[10px] text-text-subtle">&gt; ₹700</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Minimum Rating Slider -->
+            <div class="flex flex-col gap-1.5">
+              <div class="flex justify-between items-center">
+                <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">
+                  Minimum Rating
+                </label>
+                <span id="rating-badge" class="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald/10 text-emerald border border-emerald/20">
+                  ⭐ 4.0+
+                </span>
+              </div>
+              <input id="rating-slider"
+                     class="w-full accent-primary h-1.5 bg-surface-card rounded-lg cursor-pointer"
+                     max="5.0" min="3.5" step="0.1" type="range" value="4.0"/>
+              <div class="flex justify-between text-[11px] text-text-subtle font-medium">
+                <span>⭐ 3.5</span>
+                <span id="filter-count-label" class="text-text-muted font-medium">Top qualifying spots</span>
+                <span>⭐ 5.0</span>
+              </div>
+            </div>
+
+            <!-- What are you craving? (Notes input) -->
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs font-semibold text-text-muted uppercase tracking-wider flex items-center justify-between">
+                <span>Preferences &amp; Occasion</span>
+              </label>
+              <div class="relative">
+                <textarea id="prompt-textarea"
+                          class="w-full p-2.5 bg-surface-card text-text-main text-xs sm:text-sm rounded-xl border border-border-subtle focus:outline-none focus:border-primary resize-none placeholder-text-subtle/70"
+                          placeholder="Describe the occasion, seating preference, or vibe (e.g. cozy outdoor patio, date night, quiet work cafe, family-friendly)..."
+                          rows="2">Looking for a lively yet intimate dinner spot with craft sourdough pizza or handmade pasta, pet-friendly outdoor courtyard, artisanal tiramisu, and great cocktails.</textarea>
+              </div>
+            </div>
+
+            <!-- Single Primary Find Restaurants Button (At bottom of search form) -->
+            <div class="pt-1">
+              <button id="generate-btn" type="button"
+                      class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-primary to-[#e23744] hover:from-primary-hover hover:to-primary text-white font-display font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">restaurant</span>
+                <span>Find Restaurants</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Neighborhood Info Banner -->
+          <div class="p-3.5 rounded-xl bg-surface-low border border-border-subtle text-xs text-text-muted flex items-start gap-2.5">
+            <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">info</span>
+            <div>
+              <p id="traffic-notice-title" class="font-semibold text-text-main text-xs">Bangalore Dining Tip</p>
+              <p class="text-[11px] text-text-subtle mt-0.5">Peak weekend dinner rush is between 8:00 PM and 10:30 PM. Reserving a table in advance is recommended.</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- RIGHT PANEL: Curated Restaurant Recommendations Feed -->
+        <section class="lg:col-span-8 xl:col-span-8 flex flex-col gap-6">
+          <div class="flex flex-col gap-6" id="recommendations-feed">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- TABLE RESERVATION MODAL -->
+  <div id="booking-modal" class="modal-root fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop">
+    <div class="relative w-full max-w-md rounded-2xl bg-surface-card border border-border-subtle p-6 shadow-2xl modal-content">
+      <div class="flex items-center justify-between pb-3 border-b border-border-subtle mb-4">
+        <h3 id="booking-modal-title" class="font-display font-bold text-lg text-white">Reserve Table</h3>
+        <button data-close-modal class="text-text-subtle hover:text-white transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <form id="booking-form" class="flex flex-col gap-4">
+        <input type="hidden" id="booking-restaurant-name" value=""/>
+
+        <div class="flex flex-col gap-1">
+          <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">Number of Guests</label>
+          <select id="booking-guests" class="px-3 py-2 rounded-xl bg-surface-low text-text-main text-sm border border-border-subtle focus:border-primary focus:outline-none">
+            <option value="2">2 Guests (Table for 2)</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests (Family Table)</option>
+            <option value="6">6 Guests</option>
+            <option value="8">8+ Guests (Group)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div class="flex flex-col gap-1">
+            <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">Date</label>
+            <select id="booking-date" class="px-3 py-2 rounded-xl bg-surface-low text-text-main text-sm border border-border-subtle focus:border-primary focus:outline-none">
+              <option value="Tonight">Tonight</option>
+              <option value="Tomorrow">Tomorrow</option>
+              <option value="This Friday">This Friday</option>
+              <option value="This Saturday">This Saturday</option>
+            </select>
+          </div>
+          <div class="flex flex-col gap-1">
+            <label class="text-xs font-semibold text-text-muted uppercase tracking-wider">Time Slot</label>
+            <select id="booking-time" class="px-3 py-2 rounded-xl bg-surface-low text-text-main text-sm border border-border-subtle focus:border-primary focus:outline-none">
+              <option value="7:30 PM">7:30 PM</option>
+              <option value="8:00 PM" selected>8:00 PM</option>
+              <option value="8:30 PM">8:30 PM</option>
+              <option value="9:00 PM">9:00 PM</option>
+              <option value="9:30 PM">9:30 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-surface-low text-xs text-text-muted flex items-center gap-2">
+          <span class="material-symbols-outlined text-emerald text-[18px]">verified</span>
+          <span>Instant table reservation confirmation. No advance payment required.</span>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-primary hover:bg-primary-hover text-white font-display font-bold text-sm shadow-lg shadow-primary/20 transition-all">
+          Confirm Reservation
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MENU MODAL -->
+  <div id="menu-modal" class="modal-root fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop">
+    <div class="relative w-full max-w-lg rounded-2xl bg-surface-card border border-border-subtle p-6 shadow-2xl modal-content">
+      <div class="flex items-center justify-between pb-3 border-b border-border-subtle mb-4">
+        <div>
+          <h3 id="menu-modal-title" class="font-display font-bold text-lg text-white">Signature Menu</h3>
+          <p id="menu-modal-subtitle" class="text-xs text-text-muted">Must-Try Specialties</p>
+        </div>
+        <button data-close-modal class="text-text-subtle hover:text-white transition-colors">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-2.5 max-h-[60vh] overflow-y-auto pr-1">
+        <div class="p-3 rounded-xl bg-surface-low border border-border-subtle flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald/20 text-emerald font-bold">VEG</span>
+              <span class="font-medium text-sm text-white">Truffle Sourdough Margherita</span>
+            </div>
+            <p class="text-xs text-text-subtle mt-0.5">Slow-fermented dough, San Marzano tomatoes, fresh burrata</p>
+          </div>
+          <span class="font-bold text-sm text-text-main">₹640</span>
+        </div>
+
+        <div class="p-3 rounded-xl bg-surface-low border border-border-subtle flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald/20 text-emerald font-bold">VEG</span>
+              <span class="font-medium text-sm text-white">Handmade Burrata Agnolotti</span>
+            </div>
+            <p class="text-xs text-text-subtle mt-0.5">Sage browned butter, toasted pine nuts, 24mo Parmigiano</p>
+          </div>
+          <span class="font-bold text-sm text-text-main">₹680</span>
+        </div>
+
+        <div class="p-3 rounded-xl bg-surface-low border border-border-subtle flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-cyan/20 text-cyan font-bold">DRINK</span>
+              <span class="font-medium text-sm text-white">Smoked Rosemary Negroni</span>
+            </div>
+            <p class="text-xs text-text-subtle mt-0.5">Artisanal botanical gin, sweet vermouth, smoked rosemary vapor</p>
+          </div>
+          <span class="font-bold text-sm text-text-main">₹550</span>
+        </div>
+
+        <div class="p-3 rounded-xl bg-surface-low border border-border-subtle flex items-center justify-between">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber/20 text-amber font-bold">DESSERT</span>
+              <span class="font-medium text-sm text-white">Espresso Tiramisu</span>
+            </div>
+            <p class="text-xs text-text-subtle mt-0.5">Savoiardi ladyfingers, single-origin espresso, mascarpone mousse</p>
+          </div>
+          <span class="font-bold text-sm text-text-main">₹420</span>
+        </div>
+      </div>
+
+      <div class="pt-4 flex justify-end">
+        <button data-close-modal class="px-4 py-2 rounded-xl bg-surface-low text-xs font-medium text-text-main hover:bg-surface-highlight border border-border-subtle">
+          Close Menu
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLEAN FOOTER -->
+  <footer class="w-full bg-surface-low border-t border-border-subtle py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-subtle">
+      <div class="flex items-center gap-2">
+        <span class="font-display font-bold text-white text-sm">zomato dining</span>
+        <span>• Curated restaurant discovery across Bangalore</span>
+      </div>
+      <div>
+        <span>Indiranagar • Koramangala • Lavelle Road • Whitefield • HSR</span>
+      </div>
+      <div>
+        <span>© 2025 Zomato. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script src="./app.js"></script>
+</body>
+</html>
